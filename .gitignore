@@ -3,3 +3,5 @@
 node_modules
 .vscode
 _site/
+_config.yml.save
+package-lock.json
