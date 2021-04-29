@@ -4,6 +4,8 @@ import FadeInView from "../../components/animations/FadeInView";
 import BottomNavigation from "../../components/bottom-navigation";
 import Header from "../../components/header";
 import styles from "../../styles/Books.module.scss";
+import fetch from "isomorphic-unfetch";
+import { ROOT_URL } from "../../constants/config";
 
 type Book = {
 	title: string;
@@ -83,8 +85,17 @@ export default function Books(props: BooksProps) {
 }
 
 export const getStaticProps = async () => {
-	const res = await fetch("http://localhost:3000/api/books");
-	const collections: Collection[] = await res.json();
+	const res = await fetch(`${ROOT_URL}/books`, {
+		headers: {
+			"x-api-key": process.env.AWS_API_KEY,
+		},
+	});
+	const json = await res.json();
+	let collections: Collection[];
+
+	if (json) {
+		collections = JSON.parse(json);
+	}
 
 	return {
 		props: {

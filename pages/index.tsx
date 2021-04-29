@@ -165,7 +165,6 @@ export default function Home() {
 								</span>
 								<Button
 									label="VIEW MY PROJECTS"
-									href="/projects"
 									className={`p-button-outlined ${styles["section-button"]}`}
 									onClick={handleProjects}
 								/>
@@ -204,7 +203,6 @@ export default function Home() {
 								</div>
 								<Button
 									label="SEE MY BOOK LIST"
-									href="/books"
 									className={`p-button-outlined ${styles["section-button"]}`}
 									onClick={handleBooks}
 								/>

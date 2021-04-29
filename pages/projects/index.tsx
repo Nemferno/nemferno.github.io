@@ -7,6 +7,7 @@ import BottomNavigation from "../../components/bottom-navigation";
 import Header from "../../components/header";
 import styles from "../../styles/Projects.module.scss";
 import Link from "next/link";
+import { ROOT_URL } from "../../constants/config";
 
 type Projects = {
 	name: string;
@@ -81,8 +82,17 @@ export default function Projects(props: ProjectsProps) {
 }
 
 export const getStaticProps = async () => {
-	const res = await fetch("http://localhost:3000/api/projects");
-	const projects: Projects[] = await res.json();
+	const res = await fetch(`${ROOT_URL}/projects`, {
+		headers: {
+			"x-api-key": process.env.AWS_API_KEY,
+		},
+	});
+	const json = await res.json();
+	let projects: Projects[];
+
+	if (json) {
+		projects = JSON.parse(json);
+	}
 
 	return {
 		props: {
