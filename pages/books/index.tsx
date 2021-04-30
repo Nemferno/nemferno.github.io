@@ -95,8 +95,10 @@ export const getStaticProps = async () => {
 	let collections: Collection[];
 
 	try {
-		if (json) {
+		if (typeof json === "string") {
 			collections = JSON.parse(json);
+		} else {
+			collections = json;
 		}
 
 		return {
