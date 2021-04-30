@@ -1,0 +1,42 @@
+@use "lists";
+@use "variables";
+
+.bottom-nav {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 5.33rem;
+	background: variables.$primary;
+	display: flex;
+	border-top: 0.003rem solid rgb(45, 45, 45);
+
+	ul {
+		@include lists.nav;
+		flex: 1;
+		justify-content: space-evenly;
+		align-items: center;
+
+		li {
+			@include lists.nav-item;
+			color: #ffffff;
+
+			a {
+				font-size: 1rem;
+				font-weight: 600;
+				color: inherit;
+				opacity: 50%;
+			}
+		}
+
+		.active {
+			opacity: 100%;
+		}
+	}
+}
+
+@media screen and (min-width: 560px) {
+	.bottom-nav {
+		display: none;
+	}
+}
