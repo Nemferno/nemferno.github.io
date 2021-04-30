@@ -1,0 +1,169 @@
+@use "variables";
+
+.page {
+	min-height: 100vh;
+	display: flex;
+}
+
+.main {
+	display: flex;
+	flex: 1 0;
+	flex-direction: column;
+}
+
+.content {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+	text-align: center;
+	color: variables.$primary;
+	padding: {
+		top: 5.33rem;
+		left: variables.$padding-sm;
+		right: variables.$padding-sm;
+		bottom: 8.33rem;
+	}
+
+	.headline {
+		font: {
+			family: "Libre Franklin", sans-serif;
+			size: 3rem;
+			weight: 600;
+		}
+	}
+
+	.description {
+		color: variables.$secondary;
+		margin: {
+			top: 1rem;
+			bottom: 1rem;
+		}
+
+		font: {
+			family: "Merriweather", sans-serif;
+			size: 1rem;
+		}
+	}
+
+	.subheading {
+		text-transform: capitalize;
+		font: {
+			family: "Libre Franklin", sans-serif;
+			size: 1.5rem;
+			weight: 600;
+		}
+		padding: {
+			top: 2.66rem;
+			bottom: 2.66rem;
+		}
+	}
+
+	ul {
+		align-self: center;
+		list-style-type: "\27A2";
+		text-align: left;
+		padding-left: 0;
+
+		li {
+			text-transform: capitalize;
+			padding-left: 1rem;
+			font: {
+				family: "Merriweather", sans-serif;
+				size: 1rem;
+				style: italic;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 560px) {
+	.content {
+		padding: {
+			bottom: 0rem;
+		}
+
+		.headline {
+			font-size: 4rem;
+		}
+
+		.description {
+			font-size: 1.33rem;
+		}
+
+		.subheading {
+			font-size: 2.33rem;
+		}
+
+		ul > li {
+			font-size: 1.33rem;
+		}
+	}
+}
+
+@media screen and (min-width: 650px) {
+	.content {
+		padding: {
+			left: variables.$padding;
+			right: variables.$padding;
+			bottom: variables.$padding;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.content {
+		padding: {
+			left: variables.$padding-lg;
+			right: variables.$padding-lg;
+		}
+	}
+
+	.content {
+		.headline {
+			font-size: 5rem;
+		}
+
+		.description {
+			font-size: 1.66rem;
+		}
+
+		ul > li {
+			font-size: 1.66rem;
+		}
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.content {
+		padding: {
+			left: variables.$padding-lg;
+			right: variables.$padding-lg;
+		}
+	}
+}
+
+@media screen and (min-width: 1660px) {
+	.content {
+		.headline {
+			font-size: 6rem;
+		}
+
+		.description {
+			font-size: 1.99rem;
+		}
+
+		.accordion-tab-header > a {
+			font-size: 2.678rem;
+		}
+
+		.more-button {
+			font-size: 1.99rem;
+		}
+
+		ul > li {
+			font-size: 1.66rem;
+		}
+	}
+}

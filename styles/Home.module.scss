@@ -1,0 +1,375 @@
+@use "lists";
+@use "variables";
+
+.page {
+	min-height: 100vh;
+	display: flex;
+}
+
+.main {
+	display: flex;
+	flex: 1 0;
+	flex-direction: column;
+}
+
+@mixin qualities-block {
+	display: 1;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+
+	.section-container {
+		display: flex;
+		flex: 1 0;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: variables.$secondary;
+		margin: {
+			top: 2rem;
+		}
+		padding: {
+			top: 2rem;
+			left: variables.$padding-sm;
+			right: variables.$padding-sm;
+			bottom: 2rem;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		&:nth-child(even) {
+			background: variables.$primary;
+			color: #fff;
+		}
+
+		&:nth-child(odd) {
+			color: variables.$primary;
+		}
+
+		.section-left {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin: {
+				top: 1rem;
+				bottom: 1rem;
+			}
+		}
+
+		.section-right {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+	}
+
+	.welcome {
+		color: variables.$primary;
+		font: {
+			size: 4rem;
+			weight: 400;
+		}
+
+		.welcome-headline {
+			font: {
+				size: 3rem;
+			}
+		}
+	}
+
+	.welcome-subtitle {
+		color: variables.$secondary;
+		font: {
+			size: 1.167rem;
+			weight: 200;
+		}
+	}
+
+	.section-button {
+		display: inline-block;
+		align-self: flex-start;
+		margin-top: 1.33rem;
+		border-radius: 1.33rem;
+		color: currentColor;
+		padding: 0.67rem 2.5rem;
+		font: {
+			family: "Libre Franklin", sans-serif;
+			size: 1rem;
+			weight: 500;
+		}
+
+		span:first-child {
+			font-size: 1rem;
+		}
+	}
+
+	.image-container {
+		display: inline-block;
+		position: relative;
+		width: 18.75rem;
+		height: 13.5rem;
+	}
+
+	.qualities-image {
+		border-radius: 1rem;
+	}
+
+	.qualities-headline {
+		display: block;
+		font: {
+			size: 2rem;
+			weight: 500;
+		}
+	}
+
+	.qualities-description {
+		padding-top: 1.33rem;
+		font: {
+			family: "Merriweather", sans-serif;
+			size: 1rem;
+			weight: 400;
+		}
+	}
+
+	.form-headline {
+		display: block;
+		margin-bottom: 2rem;
+		font: {
+			size: 3.5rem;
+			weight: 500;
+		}
+	}
+
+	.form-field {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+
+		&:not(:last-child) {
+			margin-bottom: 1.5rem;
+		}
+
+		.form-input {
+			color: #244252;
+			height: 2rem;
+			padding: 1rem 1.5rem;
+			margin-bottom: 2px;
+			font: {
+				family: "Merriweather", sans-serif;
+				size: 1rem;
+			}
+		}
+
+		.form-error {
+			color: #f08e87;
+		}
+
+		.form-area {
+			color: #244252;
+			height: 5rem;
+			padding: 1rem 1.5rem;
+			font: {
+				family: "Merriweather", sans-serif;
+				size: 1rem;
+			}
+		}
+
+		.form-label {
+			text-align: left;
+			margin-bottom: 0.25rem;
+			font: {
+				family: "Merriweather", sans-serif;
+			}
+		}
+	}
+}
+
+.footer {
+	display: flex;
+	background: #244252;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1.5rem 1.5rem 3rem 1.5rem;
+	padding-bottom: 6rem;
+
+	.footer-copyright {
+		display: block;
+		color: #fff;
+		opacity: 50%;
+		text-align: center;
+		font: {
+			family: "Merriweather", sans-serif;
+			size: 1.33rem;
+			weight: 200;
+		}
+	}
+}
+
+@media screen and (min-width: 560px) {
+	.content {
+		.section-container {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		.block-left {
+			display: flex;
+			flex-direction: column;
+			text-align: left;
+			padding-right: 3rem;
+		}
+
+		.form-container {
+			.form-headline {
+				text-align: left;
+			}
+
+			button {
+				align-self: flex-start;
+			}
+		}
+	}
+
+	.footer {
+		border-top: 0.1rem solid #244252;
+		padding: {
+			top: 3rem;
+			bottom: 3rem;
+		}
+
+		ul {
+			flex-direction: row;
+
+			li {
+				&:not(:last-child) {
+					padding-right: 1.33rem;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 650px) {
+	.content {
+		.image-container {
+			width: 25rem;
+			height: 18rem;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.content {
+		.section-container {
+			padding: {
+				left: variables.$padding;
+				right: variables.$padding;
+			}
+
+			.section-left {
+				flex: 1;
+			}
+
+			.section-right {
+				flex: 1;
+				align-items: flex-end;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.content {
+		.welcome {
+			font-size: 5rem;
+
+			.welcome-headline {
+				font-size: 4rem;
+			}
+		}
+
+		.welcome-subtitle {
+			font-size: 1.75rem;
+		}
+
+		.qualities-headline {
+			font-size: 2.5rem;
+		}
+
+		.qualities-description {
+			font-size: 1.5rem;
+		}
+
+		.form-field {
+			font-size: 1.167rem;
+
+			.form-input {
+				height: 2.5em;
+			}
+
+			.form-area {
+				height: 6em;
+				font-size: 1.167rem;
+				padding: 1.2rem 1.5rem;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 960px) {
+	.content {
+		.image-container {
+			width: 100%;
+			height: 100%;
+			padding-bottom: calc(100% * 9 / 16);
+		}
+	}
+}
+
+@media screen and (min-width: 1140px) {
+	.content {
+		.section-container {
+			padding: {
+				left: variables.$padding-lg;
+				right: variables.$padding-lg;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.content {
+		.welcome {
+			font-size: 6rem;
+
+			.welcome-headline {
+				font-size: 4.5rem;
+			}
+		}
+
+		.welcome-subtitle {
+			font-size: 2rem;
+		}
+
+		.block-left {
+			padding-right: 8rem;
+		}
+
+		.section-button {
+			font-size: 1.75rem;
+
+			span:first-child {
+				font-size: 1.75rem;
+			}
+		}
+	}
+}
