@@ -29,6 +29,16 @@ jobs:
                   envkey_MONGODB_URI: ${{ secrets.MONGODB_URI }}
                   file_name: .env.local
 
+            - name: Sanity Check
+              env:
+                  AWS_API_KEY: ${{ secrets.AWS_API_KEY }}
+                  MONGODB_DB: ${{ secrets.MONGODB_DB }}
+                  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+              run: |
+                  echo ${#AWS_API_KEY}
+                  echo ${#MONGODB_DB}
+                  echo ${#MONGODB_URI}
+
             - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
               uses: actions/setup-node@v1
             - run: npm install
