@@ -33,7 +33,6 @@ jobs:
               uses: actions/setup-node@v1
             - run: npm install
             - run: npm run build
-            - run: npm run export
               env:
                   CI: true
                   AWS_API_KEY: ${{ secrets.AWS_API_KEY }}
