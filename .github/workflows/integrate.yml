@@ -34,9 +34,9 @@ jobs:
             - run: npm run build
               env:
                   CI: true
-                  AWS_API_KEY: ${{ env.AWS_API_KEY }}
-                  MONGODB_DB: ${{ env.MONGODB_DB }}
-                  MONGODB_URI: ${{ env.MONGODB_URI }}
+                  AWS_API_KEY: ${{ secrets.AWS_API_KEY }}
+                  MONGODB_DB: ${{ secrets.MONGODB_DB }}
+                  MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@3.6.2
