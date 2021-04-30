@@ -1,4 +1,4 @@
-const isDevEnv = process.env.NODE_ENV !== "production";
+const isDevEnv = process.env.NODE_ENV === "production";
 
 export const ROOT_URL = isDevEnv
 	? "http://localhost:3000/api"
