@@ -107,7 +107,9 @@ export const getStaticProps = async () => {
 	} catch (error) {
 		return {
 			props: {
-				collections: [{ _id: error, books: [] }] as Collection[],
+				collections: [
+					{ _id: error.message, books: [] },
+				] as Collection[],
 			},
 		};
 	}
