@@ -1,4 +1,5 @@
 # From https://javascript.plainenglish.io/deploy-your-next-js-app-on-github-pages-using-the-github-action-525271137409
+# Builds and Deploys to Github gh-pages
 name: Build and Deploy
 on: [push]
 jobs:
