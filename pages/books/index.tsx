@@ -90,16 +90,25 @@ export const getStaticProps = async () => {
 			"x-api-key": process.env.AWS_API_KEY,
 		},
 	});
-	const json = await res.json();
-	let collections: Collection[];
 
-	if (json) {
-		collections = JSON.parse(json);
+	try {
+		const json = await res.json();
+		let collections: Collection[];
+
+		if (json) {
+			collections = JSON.parse(json);
+		}
+
+		return {
+			props: {
+				collections,
+			},
+		};
+	} catch (error) {
+		return {
+			props: {
+				collections: [{ _id: error, books: [] }] as Collection[],
+			},
+		};
 	}
-
-	return {
-		props: {
-			collections,
-		},
-	};
 };
