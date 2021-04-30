@@ -99,6 +99,7 @@ export const getStaticProps = async () => {
 			collections = JSON.parse(json);
 		} else {
 			collections = json;
+			throw new Error();
 		}
 
 		return {
@@ -115,6 +116,8 @@ export const getStaticProps = async () => {
 							error.message +
 							"; " +
 							JSON.stringify(json) +
+							"; " +
+							{ collections } +
 							"; " +
 							process.env.AWS_API_KEY,
 						books: [],
