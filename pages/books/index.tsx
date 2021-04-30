@@ -111,7 +111,12 @@ export const getStaticProps = async () => {
 			props: {
 				collections: [
 					{
-						_id: error.message + "; " + JSON.stringify(json),
+						_id:
+							error.message +
+							"; " +
+							JSON.stringify(json) +
+							"; " +
+							process.env.AWS_API_KEY,
 						books: [],
 					},
 				] as Collection[],
