@@ -108,7 +108,10 @@ export const getStaticProps = async () => {
 		return {
 			props: {
 				collections: [
-					{ _id: error.message + "; " + json, books: [] },
+					{
+						_id: error.message + "; " + JSON.stringify(json),
+						books: [],
+					},
 				] as Collection[],
 			},
 		};
