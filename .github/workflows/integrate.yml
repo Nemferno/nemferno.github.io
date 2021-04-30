@@ -33,17 +33,18 @@ jobs:
               uses: actions/setup-node@v1
             - run: npm install
             - run: npm run build
+            - run: npm run export
               env:
                   CI: true
                   AWS_API_KEY: ${{ secrets.AWS_API_KEY }}
                   MONGODB_DB: ${{ secrets.MONGODB_DB }}
                   MONGODB_URI: ${{ secrets.MONGODB_URI }}
-            - run: touch .next/.nojekyll
+            - run: touch out/.nojekyll
 
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@3.6.2
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   BRANCH: gh-pages # The branch the action should deploy to.
-                  FOLDER: .next # The folder the action should deploy.
+                  FOLDER: out # The folder the action should deploy.
                   CLEAN: true # Automatically remove deleted files from the deploy branch
